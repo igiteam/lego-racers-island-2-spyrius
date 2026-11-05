@@ -22,71 +22,101 @@ This project aims to create a LEGO video game based on the classic **LEGO Racers
 
 ## Included LEGO Space Themes
 
-| Theme | Theme | Theme |
+| | | |
 |---|---|---|
-| Blacktron I | Blacktron II | Classic Space |
-| Exploriens | Futuron | Ice Planet 2002 |
-| Insectoids | Life on Mars | M:Tron |
-| Mars Mission | Roboforce | Space Police I |
-| Space Police II | Space Police III | **Spyrius** |
-| Supplemental | UFO | Unitron |
-
-Theme reference images live in the repo root (e.g. `lego-space-spyrius-6959-lunar-launch-site.jpg`, `lego-space-blacktron-i-sets.jpg`, etc.).
+| [![Blacktron I](lego-space-blacktron-i-sets.jpg)](#) Blacktron I | [![Blacktron II](lego-space-blacktron-ii-sets.jpg)](#) Blacktron II | [![Classic Space](Lego-Space-Classic-6970-Beta-1-Command-Base.jpg)](#) Classic Space |
+| [![Exploriens](lego-space-exploriens-sets.jpg)](#) Exploriens | [![Futuron](Lego-Space-Futuron-6990-Monorail-Transport-System-Set.jpg)](#) Futuron | [![Ice Planet 2002](lego-space-ice-planet-2002-sets.jpg)](#) Ice Planet 2002 |
+| [![Insectoids](lego-space-insectoids-sets.jpg)](#) Insectoids | [![Life on Mars](lego-space-life-on-mars-sets.jpg)](#) Life on Mars | [![M:Tron](lego-space-m-tron-sets.jpg)](#) M:Tron |
+| [![Mars Mission](Lego-Space-Mars-Mission-7690-MB-01-Eagle-Command-Base.png)](#) Mars Mission | [![Roboforce](lego-space-roboforce-sets.jpg)](#) Roboforce | [![Space Police I](lego-space-police-i-sets.jpg)](#) Space Police I |
+| [![Space Police II](lego-space-police-ii-sets.jpg)](#) Space Police II | [![Space Police III](Lego-Space-Space-Police-III-5975-Galactic-Enforcer.jpg)](#) Space Police III | [![Spyrius](Lego-Space-Spyrius-6959-Lunar-Launch-Site.jpg)](#) **Spyrius** |
+| [![Supplemental](lego-space-supplemental-sets.jpg)](#) Supplemental | [![UFO](lego-space-ufo-sets.jpg)](#) UFO | [![Unitron](lego-space-unitron-sets.jpg)](#) Unitron |
 
 ---
 
-## Playable Classics (embedded)
+## Playable Classics
 
-The dev hub embeds playable versions of the two source games:
+Click a cover to launch the game in your browser:
 
-- **LEGO Racers** — [play in browser](https://www.retrogames.cc/embed/42115-lego-racers.html)
-- **LEGO Island 2: The Brickster's Revenge** — [play in browser](https://www.retrogames.cc/embed/42082-lego-Island-2-the-bricksters-revenge.html)
+[![LEGO Racers](https://cdn.mobygames.com/covers/3067105-lego-racers-playstation-front-cover.jpg)](https://www.retrogames.cc/embed/42115-lego-racers.html)
+
+[![LEGO Island 2: The Brickster's Revenge](https://cdn.mobygames.com/covers/11139852-lego-island-2-the-bricksters-revenge-playstation-front-cover.jpg)](https://www.retrogames.cc/embed/42082-lego-Island-2-the-bricksters-revenge.html)
+
+> Note: the dev hub (`index.html`) embeds these games in iframes. GitHub strips iframes, so in this README they're clickable cover images that open the playable versions.
 
 ---
 
 ## Classic LEGO Space Ads
 
-The hub collects original LEGO Space commercials from the 80s and 90s, including a "Show More" expandable section for the full archive.
+Relive the nostalgia with these original LEGO Space commercials from the 80s and 90s:
+
+[![Ad 1](https://img.youtube.com/vi/McspOjzHm2o/hqdefault.jpg)](https://www.youtube.com/watch?v=McspOjzHm2o)
+[![Ad 2](https://img.youtube.com/vi/fABrJI4qmew/hqdefault.jpg)](https://www.youtube.com/watch?v=fABrJI4qmew)
+[![Ad 3](https://img.youtube.com/vi/cusvoOu3rYw/hqdefault.jpg)](https://www.youtube.com/watch?v=cusvoOu3rYw)
+[![Ad 4](https://img.youtube.com/vi/9UEbBPcl_I4/hqdefault.jpg)](https://www.youtube.com/watch?v=9UEbBPcl_I4)
+[![Ad 5](https://img.youtube.com/vi/S9uuOg6RK6w/hqdefault.jpg)](https://www.youtube.com/watch?v=S9uuOg6RK6w)
+[![Ad 6](https://img.youtube.com/vi/OCEq1JRMwwc/hqdefault.jpg)](https://www.youtube.com/watch?v=OCEq1JRMwwc)
+[![Ad 7](https://img.youtube.com/vi/BvUhaMnTuPk/hqdefault.jpg)](https://www.youtube.com/watch?v=BvUhaMnTuPk)
+[![Ad 8](https://img.youtube.com/vi/oiS7JLz0XeQ/hqdefault.jpg)](https://www.youtube.com/watch?v=oiS7JLz0XeQ)
+[![Ad 9](https://img.youtube.com/vi/eUxpmepzTKA/hqdefault.jpg)](https://www.youtube.com/watch?v=eUxpmepzTKA)
+[![Ad 10](https://img.youtube.com/vi/puCuJPCM8ms/hqdefault.jpg)](https://www.youtube.com/watch?v=puCuJPCM8ms)
+[![Ad 11](https://img.youtube.com/vi/oYMqhZ5ESVE/hqdefault.jpg)](https://www.youtube.com/watch?v=oYMqhZ5ESVE)
+[![Ad 12](https://img.youtube.com/vi/D-OPF8pQvNw/hqdefault.jpg)](https://www.youtube.com/watch?v=D-OPF8pQvNw)
+
+<details>
+<summary><strong>Show More Classic Ads ▼</strong></summary>
+
+[![Ad 13](https://img.youtube.com/vi/5eXtJOZIpEY/hqdefault.jpg)](https://www.youtube.com/watch?v=5eXtJOZIpEY)
+[![Ad 14](https://img.youtube.com/vi/dFNjzemt4_E/hqdefault.jpg)](https://www.youtube.com/watch?v=dFNjzemt4_E)
+[![Ad 15](https://img.youtube.com/vi/kUTedJH30bc/hqdefault.jpg)](https://www.youtube.com/watch?v=kUTedJH30bc)
+[![Ad 16](https://img.youtube.com/vi/7SIvDvkr42g/hqdefault.jpg)](https://www.youtube.com/watch?v=7SIvDvkr42g)
+[![Ad 17](https://img.youtube.com/vi/HknX4wH_ZMo/hqdefault.jpg)](https://www.youtube.com/watch?v=HknX4wH_ZMo)
+[![Ad 18](https://img.youtube.com/vi/sZlUzLeDyWM/hqdefault.jpg)](https://www.youtube.com/watch?v=sZlUzLeDyWM)
+[![Ad 19](https://img.youtube.com/vi/yvXyYJgZ158/hqdefault.jpg)](https://www.youtube.com/watch?v=yvXyYJgZ158)
+[![Ad 20](https://img.youtube.com/vi/hYyKk_ZTsuQ/hqdefault.jpg)](https://www.youtube.com/watch?v=hYyKk_ZTsuQ)
+[![Ad 21](https://img.youtube.com/vi/cAss1X8mwP0/hqdefault.jpg)](https://www.youtube.com/watch?v=cAss1X8mwP0)
+[![Ad 22](https://img.youtube.com/vi/RMZkka0ddGw/hqdefault.jpg)](https://www.youtube.com/watch?v=RMZkka0ddGw)
+[![Ad 23](https://img.youtube.com/vi/9-H4IssiQGM/hqdefault.jpg)](https://www.youtube.com/watch?v=9-H4IssiQGM)
+[![Ad 24](https://img.youtube.com/vi/19O6c0-RGkU/hqdefault.jpg)](https://www.youtube.com/watch?v=19O6c0-RGkU)
+[![Ad 25](https://img.youtube.com/vi/ANaKPr7VaHE/hqdefault.jpg)](https://www.youtube.com/watch?v=ANaKPr7VaHE)
+[![Ad 26](https://img.youtube.com/vi/YRcfnzgvGG8/hqdefault.jpg)](https://www.youtube.com/watch?v=YRcfnzgvGG8)
+[![Ad 27](https://img.youtube.com/vi/avzVexzdxlQ/hqdefault.jpg)](https://www.youtube.com/watch?v=avzVexzdxlQ)
+[![Ad 28](https://img.youtube.com/vi/a_VjDvAOhno/hqdefault.jpg)](https://www.youtube.com/watch?v=a_VjDvAOhno)
+
+</details>
 
 ---
 
 ## LEGO Space Set Videos
 
-Reference videos for each theme:
+Watch these detailed videos showcasing classic LEGO Space sets from various themes:
 
-- Blacktron
-- Blacktron 2
-- **Spyrius**
-- Ice Planet 2002
-- Space Police
-- Space Police 2
-- UFO
-- M:Tron
-- Life on Mars
-- Exploriens
-- Rock Raiders
+| Theme | Video |
+|---|---|
+| Blacktron | [![Blacktron](https://img.youtube.com/vi/LGN0GmT4PcE/hqdefault.jpg)](https://www.youtube.com/watch?v=LGN0GmT4PcE) |
+| Blacktron 2 | [![Blacktron 2](https://img.youtube.com/vi/-h_alhGvtYs/hqdefault.jpg)](https://www.youtube.com/watch?v=-h_alhGvtYs) |
+| **Spyrius** | [![Spyrius](https://img.youtube.com/vi/yUlnP4sOtrw/hqdefault.jpg)](https://www.youtube.com/watch?v=yUlnP4sOtrw) |
+| Ice Planet 2002 | [![Ice Planet 2002](https://img.youtube.com/vi/KA0MtdIt7oA/hqdefault.jpg)](https://www.youtube.com/watch?v=KA0MtdIt7oA) |
+| Space Police | [![Space Police](https://img.youtube.com/vi/yUlnP4sOtrw/hqdefault.jpg)](https://www.youtube.com/watch?v=yUlnP4sOtrw) |
+| Space Police 2 | [![Space Police 2](https://img.youtube.com/vi/Uo3rbpX_CRA/hqdefault.jpg)](https://www.youtube.com/watch?v=Uo3rbpX_CRA) |
+| UFO | [![UFO](https://img.youtube.com/vi/3cWHMoBmLsU/hqdefault.jpg)](https://www.youtube.com/watch?v=3cWHMoBmLsU) |
+| M:Tron | [![M:Tron](https://img.youtube.com/vi/SrVY15Bl89k/hqdefault.jpg)](https://www.youtube.com/watch?v=SrVY15Bl89k) |
+| Life on Mars | [![Life on Mars](https://img.youtube.com/vi/4dRtcOAjU-s/hqdefault.jpg)](https://www.youtube.com/watch?v=4dRtcOAjU-s) |
+| Exploriens | [![Exploriens](https://img.youtube.com/vi/xb5tFyejcVg/hqdefault.jpg)](https://www.youtube.com/watch?v=xb5tFyejcVg) |
+| Rock Raiders | [![Rock Raiders](https://img.youtube.com/vi/y7pblIZ8G4g/hqdefault.jpg)](https://www.youtube.com/watch?v=y7pblIZ8G4g) |
 
 ---
 
 ## Asset Collection
 
-Over **3000 images**, build instructions, and video references have been collected for all included LEGO sets. These assets will be used to create accurate 3D models for the game.
+We have collected over **3000 images**, build instructions, and video references for all included LEGO sets. These assets will be used to create accurate 3D models for the game.
 
 ### Asset Gallery
 
-Screenshots and reference captures from LEGO Racers (1999) and LEGO Island 2:
-
-| File | Description |
-|---|---|
-| `lego-racers-1999-racer-character-creator.png` | LEGO Racers character creator |
-| `lego-racers-1999-racer-build-1.png` | LEGO Racers vehicle build screen 1 |
-| `lego-racers-1999-racer-build-2.png` | LEGO Racers vehicle build screen 2 |
-| `lego-racers-1999-racer-build-3.png` | LEGO Racers vehicle build screen 3 |
-| `lego-racers-1999-space-race.png` | LEGO Racers space track |
-| `LEGO_Island 2_space-1.png` | LEGO Island 2 space area 1 |
-| `LEGO_Island 2_space-2.png` | LEGO Island 2 space area 2 |
-| `LEGO_Island 2_space-3.png` | LEGO Island 2 space area 3 |
-| `LEGO_Island 2_space-4.png` | LEGO Island 2 space area 4 |
+| | | |
+|---|---|---|
+| ![LEGO Racers character creator](Lego-Racers-1999-racer-character-creator.png) | ![LEGO Racers vehicle build 1](Lego-Racers-1999-racer-build-1.png) | ![LEGO Racers vehicle build 2](Lego-Racers-1999-racer-build-2.png) |
+| ![LEGO Racers vehicle build 3](Lego-Racers-1999-racer-build-3.png) | ![LEGO Racers space race](Lego-Racers-1999-space-race.png) | ![LEGO Island 2 space 1](<LEGO_Island 2_space-1.png>) |
+| ![LEGO Island 2 space 2](<LEGO_Island 2_space-2.png>) | ![LEGO Island 2 space 3](<LEGO_Island 2_space-3.png>) | ![LEGO Island 2 space 4](<LEGO_Island 2_space-4.png>) |
 
 Example direct link:
 
