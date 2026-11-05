@@ -17,6 +17,10 @@ A fan-made game concept combining **LEGO Racers** with elements from **LEGO Isla
 ## LEGO Spyrius - the base of the gameplay
 [![LEGO Spyrius](https://img.youtube.com/vi/MAa3zVS4kXw/maxresdefault.jpg)](https://www.youtube.com/watch?v=MAa3zVS4kXw)
 
+[![LEGO 6959 Spyrius Lunar Launch Site (1994)](https://img.youtube.com/vi/erT-Ar0LOGY/maxresdefault.jpg)](https://www.youtube.com/watch?v=erT-Ar0LOGY)
+
+
+
 ## Project Overview
 
 This project aims to create a LEGO video game based on the classic **LEGO Racers** PC game, enhanced with elements from **LEGO Island 2**, and featuring all the iconic LEGO Space themes from the 1990s. The game will be developed as a modification/extension of the original LEGO Racers engine.
