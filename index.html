@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LEGO Spyrius - Development Hub</title>
+    <link rel="icon" href="https://i.postimg.cc/SR6pw41R/lego-spyrius.png" type="image/png" />
+    <style>
+        :root {
+            --spyrius-red: #FF2D2D;
+            --spyrius-dark: #0C1020;
+            --spyrius-blue: #0084FF;
+            --spyrius-gray: #2C3548;
+            --spyrius-light: #E6F1FF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--spyrius-dark);
+            color: var(--spyrius-light);
+            line-height: 1.6;
+            background-image: linear-gradient(rgba(12, 16, 32, 0.9), rgba(12, 16, 32, 0.9)),
+                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%232C3548" width="100" height="100"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%230C1020" stroke-width="2"/></svg>');
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--spyrius-dark) 0%, var(--spyrius-gray) 100%);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--spyrius-red);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2" fill="%23FF2D2D" opacity="0.3"/></svg>');
+            z-index: 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--spyrius-red);
+            text-shadow: 0 0 10px rgba(255, 45, 45, 0.5);
+            position: relative;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--spyrius-light);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            background: rgba(44, 53, 72, 0.8);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        h2 {
+            color: var(--spyrius-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--spyrius-red);
+        }
+
+        h3 {
+            color: var(--spyrius-red);
+            margin: 1.5rem 0 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .theme-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .theme-item {
+            background: var(--spyrius-gray);
+            padding: 1rem;
+            border-radius: 6px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        .theme-item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+
+        }
+
+        .theme-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .gallery-item {
+            height: 200px;
+            background-color: var(--spyrius-gray);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .placeholder-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--spyrius-light);
+            background: linear-gradient(135deg, var(--spyrius-gray) 0%, var(--spyrius-dark) 100%);
+        }
+
+        .placeholder-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .feature {
+            background: var(--spyrius-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--spyrius-red);
+        }
+
+        .dev-guide {
+            background: var(--spyrius-dark);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        .dev-step {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed var(--spyrius-gray);
+        }
+
+        .dev-step:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .team-member {
+            background: var(--spyrius-gray);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        .team-member .placeholder-img {
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            width: 150px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            background: var(--spyrius-gray);
+            border-top: 4px solid var(--spyrius-red);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .theme-grid,
+            .gallery,
+            .features,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .video-item {
+            background: var(--spyrius-gray);
+            padding: 0.5rem;
+            border-radius: 6px;
+            transition: transform 0.3s;
+            border: 1px solid var(--spyrius-blue);
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <style>
+        .games-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .game-box {
+            flex: 1 1 50%;
+            /* each takes 50% of row */
+            position: relative;
+            min-width: 0;
+            /* allow shrinking instead of forcing 600px */
+        }
+
+        .game-box iframe {
+            width: 100%;
+            /* responsive width */
+            height: 450px;
+            display: block;
+        }
+
+        .cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 450px;
+            /* same as iframe */
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .cover img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+    </style>
+    <style>
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .video-item {
+            background: var(--spyrius-gray);
+            padding: 1rem;
+            border-radius: 6px;
+            transition: transform 0.3s;
+            border: 1px solid var(--spyrius-blue);
+            text-align: center;
+        }
+
+        .video-item h3 {
+            color: var(--spyrius-red);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 132, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            <img src="https://i.postimg.cc/bJ7jdrS3/lego.png" width="200px" />
+            <img src=" https://i.postimg.cc/t4wkKxKS/spyrius.png" width="200px" />
+        </h1>
+        <p class="subtitle">A fan-made game concept combining LEGO Racers with elements from LEGO Island 2,
+            featuring all classic LEGO Space themes from the 90s</p>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>Project Overview</h2>
+            <p>This project aims to create a LEGO video game based on the classic LEGO Racers PC game, enhanced with
+                elements from LEGO Island 2, and featuring all the iconic LEGO Space themes from the 1990s. The game
+                will be developed as a modification/extension of the original LEGO Racers engine.</p>
+
+            <h3>Included LEGO Space Themes</h3>
+            <div class="theme-grid">
+                <div class="theme-item">
+                    <img src="./lego-space-blacktron-i-sets.jpg" alt="Blacktron I">
+                    <div class="theme-name">Blacktron I</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-blacktron-ii-sets.jpg" alt="Blacktron II">
+                    <div class="theme-name">Blacktron II</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./Lego-Space-Classic-6970-Beta-1-Command-Base.jpg" alt="Classic Space">
+                    <div class="theme-name">Classic Space</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-exploriens-sets.jpg" alt="Exploriens">
+                    <div class="theme-name">Exploriens</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./Lego-Space-Futuron-6990-Monorail-Transport-System-Set.jpg" alt="Futuron">
+                    <div class="theme-name">Futuron</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-ice-planet-2002-sets.jpg" alt="Ice Planet 2002">
+                    <div class="theme-name">Ice Planet 2002</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-insectoids-sets.jpg" alt="Insectoids">
+                    <div class="theme-name">Insectoids</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-life-on-mars-sets.jpg" alt="Life on Mars">
+                    <div class="theme-name">Life on Mars</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-m-tron-sets.jpg" alt="M:Tron">
+                    <div class="theme-name">M:Tron</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./Lego-Space-Mars-Mission-7690-MB-01-Eagle-Command-Base.png" alt="Mars Mission">
+                    <div class="theme-name">Mars Mission</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-roboforce-sets.jpg" alt="Roboforce">
+                    <div class="theme-name">Roboforce</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-police-i-sets.jpg" alt="Space Police I">
+                    <div class="theme-name">Space Police I</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-police-ii-sets.jpg" alt="Space Police II">
+                    <div class="theme-name">Space Police II</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./Lego-Space-Space-Police-III-5975-Galactic-Enforcer.jpg" alt="Space Police III">
+                    <div class="theme-name">Space Police III</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./Lego-Space-Spyrius-6959-Lunar-Launch-Site.jpg" alt="Spyrius">
+                    <div class="theme-name">Spyrius</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-supplemental-sets.jpg" alt="Supplemental">
+                    <div class="theme-name">Supplemental</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-ufo-sets.jpg" alt="UFO">
+                    <div class="theme-name">UFO</div>
+                </div>
+                <div class="theme-item">
+                    <img src="./lego-space-unitron-sets.jpg" alt="Unitron">
+                    <div class="theme-name">Unitron</div>
+                </div>
+            </div>
+            <section class="section">
+                <section class="games-section">
+                    <!-- Game 1 -->
+                    <div class="game-box">
+                        <div class="cover" onclick="this.style.display='none'">
+                            <img src="https://cdn.mobygames.com/covers/3067105-lego-racers-playstation-front-cover.jpg"
+                                alt="Lego Racers Cover">
+                        </div>
+                        <iframe src="https://www.retrogames.cc/embed/42115-lego-racers.html" frameborder="0"
+                            allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no">
+                        </iframe>
+                    </div>
+
+                    <!-- Game 2 -->
+                    <div class="game-box">
+                        <div class="cover" onclick="this.style.display='none'">
+                            <img src="https://cdn.mobygames.com/covers/11139852-lego-island-2-the-bricksters-revenge-playstation-front-cover.jpg"
+                                alt="Lego Island 2 Cover">
+                        </div>
+                        <iframe src="https://www.retrogames.cc/embed/42082-lego-Island-2-the-bricksters-revenge.html"
+                            frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen scrolling="no">
+                        </iframe>
+                    </div>
+                </section>
+
+
+                <section class="section">
+                    <h2>Classic LEGO Space Ads</h2>
+                    <p>Relive the nostalgia with these original LEGO Space commercials from the 80s and 90s:</p>
+
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/McspOjzHm2o"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/fABrJI4qmew"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/cusvoOu3rYw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/9UEbBPcl_I4"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/S9uuOg6RK6w"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/OCEq1JRMwwc"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/BvUhaMnTuPk"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/oiS7JLz0XeQ"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/eUxpmepzTKA"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/puCuJPCM8ms"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/oYMqhZ5ESVE"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/D-OPF8pQvNw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 20px; text-align: center;">
+                        <a href="#" id="showMoreVideos"
+                            style="color: var(--spyrius-blue); text-decoration: none; font-weight: bold;">
+                            Show More Classic Ads ▼
+                        </a>
+                    </p>
+
+                    <div id="moreVideos" style="display: none;">
+                        <div class="video-grid">
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/5eXtJOZIpEY"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/dFNjzemt4_E"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/kUTedJH30bc"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/7SIvDvkr42g"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/HknX4wH_ZMo"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/sZlUzLeDyWM"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/yvXyYJgZ158"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/hYyKk_ZTsuQ"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/cAss1X8mwP0"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/RMZkka0ddGw"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/9-H4IssiQGM"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/19O6c0-RGkU"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/ANaKPr7VaHE"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/YRcfnzgvGG8"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/avzVexzdxlQ"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="video-item">
+                                <iframe width="100%" height="200" src="https://www.youtube.com/embed/a_VjDvAOhno"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <section class="section">
+                    <h2>LEGO Space Set Videos</h2>
+                    <p>Watch these detailed videos showcasing classic LEGO Space sets from various themes:</p>
+
+                    <div class="video-grid">
+                        <div class="video-item">
+                            <h3>Blacktron</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/LGN0GmT4PcE"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Blacktron 2</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/-h_alhGvtYs"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Spyrius</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/yUlnP4sOtrw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Ice Planet 2002</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/KA0MtdIt7oA"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Space Police</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/yUlnP4sOtrw"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Space Police 2</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/Uo3rbpX_CRA"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>UFO</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/3cWHMoBmLsU"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>M:Tron</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/SrVY15Bl89k"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Life on Mars</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/4dRtcOAjU-s"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Exploriens</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/xb5tFyejcVg"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="video-item">
+                            <h3>Rock Raiders</h3>
+                            <iframe width="100%" height="200" src="https://www.youtube.com/embed/y7pblIZ8G4g"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </section>
+
+
+                <h2>Asset Collection</h2>
+                <p>We have collected over 3000 images, build instructions, and video references for all included
+                    LEGO sets.
+                    These assets will be used to create accurate 3D models for the game.</p>
+
+                <h3>Asset Gallery</h3>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <div class="placeholder-img">
+                            <img src="./Lego-Racers-1999-racer-character-creator.png" width="100%" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./Lego-Racers-1999-racer-build-1.png" /> </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img">
+                            <img src="./Lego-Racers-1999-racer-build-2.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./Lego-Racers-1999-racer-build-3.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./Lego-Racers-1999-space-race.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./LEGO_Island 2_space-1.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./LEGO_Island 2_space-2.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./LEGO_Island 2_space-3.png" />
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="placeholder-img"><img src="./LEGO_Island 2_space-4.png" />
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            <section class="section">
+                <h2>Development Resources</h2>
+                <p>We've compiled extensive reference materials to ensure authentic recreation of all LEGO Space themes:
+                </p>
+
+                <div class="dev-guide">
+                    <div class="dev-step">
+                        <h3>Instruction Videos</h3>
+                        <p>Complete build videos for all space sets:
+                            <a href="https://www.youtube.com/@LEGO-Instruction/search?query=space" target="_blank"
+                                style="color: var(--spyrius-blue);">
+                                YouTube LEGO Space Instructions
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Retro Set Reviews</h3>
+                        <p>Detailed analysis of classic space sets:
+                            <a href="https://www.youtube.com/playlist?list=PL4mHVyjQxLw9tBuQ340mZS3giXh9EpNcL"
+                                target="_blank" style="color: var(--spyrius-blue);">
+                                Retro LEGO Sets Ranked
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Complete Set Database</h3>
+                        <p>Reference all space-themed sets with building instructions and parts lists:
+                            <a href="https://www.toysperiod.com/lego-set-reference/space/?sort=item_number&order=desc"
+                                target="_blank" style="color: var(--spyrius-blue);">
+                                LEGO Space Set Reference
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Value Pack References</h3>
+                        <p>Study multi-set packages for part combinations:
+                            <a href="https://www.toysperiod.com/lego-set-reference/space/futuron/lego-1974-4-star-quest/"
+                                target="_blank" style="color: var(--spyrius-blue);">
+                                4-Star Quest Value Pack
+                            </a> |
+                            <a href="https://www.toysperiod.com/lego-set-reference/value-packs/lego-1843-space-and-castle-value-pack/"
+                                target="_blank" style="color: var(--spyrius-blue);">
+                                Space & Castle Value Pack
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Box Art & Packaging</h3>
+                        <p>Reference for menu backgrounds and promotional materials:
+                            <a href="https://www.backoftheboxbuilds.com/set-6990/" target="_blank"
+                                style="color: var(--spyrius-blue);">
+                                LEGO Box Images Collection
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Building Instructions</h3>
+                        <p>Step-by-step instructions for accurate 3D model recreation:
+                            <a href="https://lego.brickinstructions.com/lego_instructions/theme/space" target="_blank"
+                                style="color: var(--spyrius-blue);">
+                                LEGO Space Building Instructions
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <p>These resources provide everything needed to accurately recreate all vehicles, characters, and
+                    environments
+                    using the LEGO Racers building systems for both character and vehicle creation.</p>
+            </section>
+            <section class="section">
+                <h2>Game Features</h2>
+                <div class="features">
+                    <div class="feature">
+                        <h3>Expanded Vehicle Creator</h3>
+                        <p>Based on LEGO Racers' car creation system but with more parts and customization options
+                            from all
+                            Space themes.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Character Customization</h3>
+                        <p>Create your own astronaut minifigure with parts from all the included Space themes.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Themed Tracks</h3>
+                        <p>Race on tracks inspired by each Space theme, with unique environments and obstacles.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Story Mode</h3>
+                        <p>Incorporate LEGO Island 2's adventure elements with a story spanning all Space factions.
+                        </p>
+                    </div>
+                    <div class="feature">
+                        <h3>Multiplayer Racing</h3>
+                        <p>Local and online multiplayer racing with support for custom vehicles.</p>
+                    </div>
+                    <div class="feature">
+                        <h3>Original Soundtrack</h3>
+                        <p>Music inspired by the classic LEGO Space themes with modern production.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Guided Free-Build System</h2>
+                <p>Our innovative building system combines the freedom of creative construction with the guidance of
+                    official LEGO
+                    instructions, creating the ultimate digital building experience.</p>
+
+                <div class="dev-guide">
+                    <div class="dev-step">
+                        <h3>1. The "Reference" Panel (Left 20%)</h3>
+                        <p>This isn't a locked "step-by-step" guide. It's an interactive viewer for the official
+                            instruction
+                            booklet.</p>
+                        <ul>
+                            <li>The player can flip through the pages of the scanned instructions (Page 1 of 20, 2 of
+                                20...)</li>
+                            <li>Just like having the physical book open on their desk</li>
+                            <li>The current page is displayed clearly - no forcing, no locking parts</li>
+                            <li>Simple navigation controls to move between pages</li>
+                        </ul>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>2. The "Smart" Part Palette (The Game Changer)</h3>
+                        <p>This is where your genius idea comes in. The palette doesn't restrict parts.</p>
+                        <ul>
+                            <li>Special "Suggested Parts" or "Next Parts" mode</li>
+                            <li>Based on the current instruction page, the game highlights or adds a subtle glow around
+                                relevant
+                                bricks</li>
+                            <li>Visual indicators show: "This page uses: 4x 2x4 Red Brick, 1x 2x2 Slope, 2x 1x2 Blue
+                                Plate"</li>
+                            <li>Helps players find what they need without restricting their creativity</li>
+                        </ul>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>3. The Freedom</h3>
+                        <p>Our system accommodates all play styles:</p>
+                        <ul>
+                            <li><strong>Veteran Builders:</strong> Can work from memory, glancing at the manual only for
+                                complex
+                                sections</li>
+                            <li><strong>New Players:</strong> Can follow instructions meticulously with the "suggested
+                                parts"
+                                highlight</li>
+                            <li><strong>Creative Players:</strong> Can use instructions as inspiration then modify
+                                designs with
+                                their own flair</li>
+                            <li><strong>Mix & Match:</strong> Players can combine parts from different sets since the
+                                palette isn't
+                                locked down</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <h3>Why This Approach is Perfect</h3>
+                    <div class="features">
+                        <div class="feature">
+                            <h4>Respects Player Agency</h4>
+                            <p>Doesn't treat the player like a child who must follow directions. It treats them like an
+                                AFOL (Adult
+                                Fan of LEGO) who has a manual open next to their building plate.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Solves the "I Can't Find the Piece!" Problem</h4>
+                            <p>Eliminates the frustration of scanning a big pile of bricks for one specific piece. The
+                                "suggested
+                                parts" highlight makes building smooth and enjoyable.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Scalable Implementation</h4>
+                            <p>Doesn't require complex step-by-step logic for every set. Just associate instruction
+                                pages with part
+                                IDs for a helpful UI feature that works across all 350+ sets.</p>
+                        </div>
+                        <div class="feature">
+                            <h4>Fits the LEGO Vibe</h4>
+                            <p>Matches the creative, exploratory spirit of classic LEGO games. We provide the tools and
+                                inspiration,
+                                then get out of the way to let the player create.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <h3>Technical Implementation Overview</h3>
+                    <ul>
+                        <li>Instruction manual stored as high-quality PNG images with navigation system</li>
+                        <li>JSON database mapping instruction pages to part IDs and quantities</li>
+                        <li>Visual highlighting system for the part palette</li>
+                        <li>Non-intrusive UI that doesn't interfere with creative building</li>
+                        <li>Compatible with all planned Space themes and sets</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="section">
+                <h2>Development Guide</h2>
+                <p>This guide outlines the development process for our team to create the LEGO Spyrius Racing game.
+                </p>
+
+                <div class="dev-guide">
+                    <div class="dev-step">
+                        <h3>Step 1: Engine Analysis</h3>
+                        <p>Reverse engineer the LEGO Racers game engine to understand its capabilities and
+                            limitations.
+                            Document the file formats for models, textures, and tracks.</p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Step 2: Asset Pipeline</h3>
+                        <p>Create a workflow for converting LEGO set instructions into 3D models. Develop tools to
+                            extract
+                            parts from existing LEGO Racers assets and create new ones.</p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Step 3: 3D Modeling</h3>
+                        <p>Model all LEGO parts from the collected sets. Ensure accuracy to real LEGO pieces while
+                            optimizing for game performance.</p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Step 4: Track Design</h3>
+                        <p>Design race tracks inspired by each Space theme. Create concept art and block out tracks
+                            before
+                            full implementation.</p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Step 5: Programming</h3>
+                        <p>Modify the LEGO Racers engine to support new features, including expanded creation tools
+                            and
+                            additional game modes.</p>
+                    </div>
+
+                    <div class="dev-step">
+                        <h3>Step 6: Testing</h3>
+                        <p>Conduct extensive testing of all game features, focusing on vehicle physics, track
+                            design, and
+                            multiplayer stability.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2>Development Team</h2>
+                <p>Our team consists of dedicated fans and skilled developers working to bring this project to life.
+                </p>
+
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="placeholder-img">Lead Developer</div>
+                        <h3>Project Lead</h3>
+                        <p>Coordinates development and engine modification</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-img">3D Artist</div>
+                        <h3>3D Modelers</h3>
+                        <p>Create accurate LEGO piece models</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-img">Track Designer</div>
+                        <h3>Level Designers</h3>
+                        <p>Design thematically appropriate race tracks</p>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="placeholder-img">Texture Artist</div>
+                        <h3>Texture Artists</h3>
+                        <p>Create authentic LEGO textures and decals</p>
+                    </div>
+                </div>
+            </section>
+    </div>
+
+    <footer>
+        <p>LEGO Spyrius Racing is a fan-made project. LEGO is a trademark of the LEGO Group, which does not
+            sponsor,
+            authorize or endorse this project.</p>
+        <p>© 2023 LEGO Spyrius Racing Development Team</p>
+    </footer>
+    <script>
+        document.getElementById('showMoreVideos').addEventListener('click', function (e) {
+            e.preventDefault();
+            const moreVideos = document.getElementById('moreVideos');
+            const showMoreLink = document.getElementById('showMoreVideos');
+
+            if (moreVideos.style.display === 'none') {
+                moreVideos.style.display = 'block';
+                showMoreLink.textContent = 'Show Fewer Ads ▲';
+            } else {
+                moreVideos.style.display = 'none';
+                showMoreLink.textContent = 'Show More Classic Ads ▼';
+            }
+        });
+    </script>
+</body>
+
+</html>
