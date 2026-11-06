@@ -25,6 +25,13 @@ A fan-made game concept combining **LEGO Racers** with elements from **LEGO Isla
 
 This project aims to create a LEGO video game based on the classic **LEGO Racers** PC game, enhanced with elements from **LEGO Island 2**, and featuring all the iconic LEGO Space themes from the 1990s. The game will be developed as a modification/extension of the original LEGO Racers engine.
 
+
+## Reference Links
+[https://github.com/isledecomp/racers](https://github.com/isledecomp/racers)
+[https://github.com/james-knippes/openlgr](https://github.com/james-knippes/openlgr)
+[https://github.com/isledecomp/racers-portable](https://github.com/isledecomp/racers-portable)
+[https://github.com/isledecomp/reccmp](https://github.com/isledecomp/reccmp)
+
 ---
 
 ## Included LEGO Space Themes
