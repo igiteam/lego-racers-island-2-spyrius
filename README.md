@@ -28,9 +28,13 @@ This project aims to create a LEGO video game based on the classic **LEGO Racers
 
 ## Reference Links
 [https://github.com/isledecomp/racers](https://github.com/isledecomp/racers)
+
 [https://github.com/james-knippes/openlgr](https://github.com/james-knippes/openlgr)
+
 [https://github.com/isledecomp/racers-portable](https://github.com/isledecomp/racers-portable)
+
 [https://github.com/isledecomp/reccmp](https://github.com/isledecomp/reccmp)
+
 
 ---
 
