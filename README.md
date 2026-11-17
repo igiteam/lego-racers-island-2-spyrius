@@ -1,4 +1,3 @@
-
 # lego-racers-island-2-spyrius
 ## LEGO Racers - LEGO Island 2 - Spyrius Remake
 A fan-made game concept combining **LEGO Racers** with elements from **LEGO Island 2**, featuring all classic LEGO Space themes from the 80s and 90s — with **Spyrius** as the base of the gameplay.
